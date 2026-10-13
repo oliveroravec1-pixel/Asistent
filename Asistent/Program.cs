@@ -1,95 +1,148 @@
 ﻿while (true)
 {
-    Console.Write("Zadaj príkaz(sum, odm, find, help): ");
-    string prikaz = Console.ReadLine();
+   Console.Write("Zadaj príkaz (sum, odm, find, help, rect): ");
+   string prikaz = Console.ReadLine();
+       if (prikaz == "sum")
+       {
+           Sum();
+       }
+       else if (prikaz == "odm")
+       {
+           Odm();
+       }
+       else if (prikaz == "find")
+       {
+           Find();
+       }
+       else if (prikaz == "help")
+       {
+        Help();
+       }
+       else if (prikaz == "rect")
+       {
+           Rect();
+       }
+       else if (prikaz == "exit")
+       {
+           break;
+       }
+       else 
+       {
+       Console.WriteLine("Zadaj správny príkaz."); 
+       }
+}
+void Sum()
+{ 
     Console.WriteLine();
-    if (prikaz == "sum" || prikaz == "odm" || prikaz == "find" || prikaz == "help" || prikaz == "exit")
+    Console.WriteLine("Rozumiem, robíme operáciu sum.");
+    Console.WriteLine();
+    Console.Write("Zadaj prvé číslo: ");
+    int sum1 = int.Parse(Console.ReadLine());
+    Console.WriteLine();
+    Console.Write("Zadaj druhé číslo: ");
+    int sum2 = int.Parse(Console.ReadLine());
+    Console.WriteLine();
+    int sum_vysledok = sum1 + sum2;
+    Console.WriteLine($"{sum1} + {sum2} = {sum_vysledok}.");
+    Console.WriteLine();
+}
+void Odm()
+{
+    Console.WriteLine();
+    Console.WriteLine("Rozumiem, robíme operáciu odm.");
+    Console.WriteLine();
+    Console.Write("Zadaj číslo: "); 
+    int odm = int.Parse(Console.ReadLine());
+    if (odm >= 0)
     {
-        if (prikaz == "sum")
-        {
-            Console.WriteLine("Rozumiem, robíme operáciu sum.");
-            Console.WriteLine();
-            Console.Write("Zadaj prvé číslo: ");
-            int sum1 = int.Parse(Console.ReadLine());
-            Console.WriteLine();
-            Console.Write("Zadaj druhé číslo: ");
-            int sum2 = int.Parse(Console.ReadLine());
-            Console.WriteLine();
-            Sum(sum1, sum2);
-            Console.WriteLine();
-        }
-        if (prikaz == "odm")
-        {
-            Console.WriteLine("Rozumiem, robíme operáciu odm.");
-            Console.WriteLine();
-            Console.Write("Zadaj číslo: ");  
-            int odm = int.Parse(Console.ReadLine());
-            if (odm >= 0)
-            {
-                Console.WriteLine();
-                Odm(odm);
-                Console.WriteLine();
-            }
-            else
-            {
-                Console.WriteLine();
-                Console.WriteLine("Chyba, záporné čísla sa odmocňovať nedá.");
-                Console.WriteLine();
-            }
-        }
-        if (prikaz == "find")
-        {
-            Console.WriteLine("Rozumiem, robíme operáciu find.");
-            Console.WriteLine();
-            Console.Write("Zadaj text: ");
-            string text = Console.ReadLine();
-            Console.WriteLine();
-            Console.Write("Zadaj hľadaný podreťazec: ");
-            string podretazec = Console.ReadLine();
-            Console.WriteLine();
-            Find(text,podretazec);
-            Console.WriteLine();
-        }
-        if (prikaz == "help")
-        {
-            Console.WriteLine("Operácie a ich využitie:");
-            Console.WriteLine("sum - sčíta dve čísla");
-            Console.WriteLine("odm - odmocní číslo");
-            Console.WriteLine("find - nájde podreťazec vo vete");
-            Console.WriteLine("help - vypíše všetky podporované príkazy");
-            Console.WriteLine();
-        }
-        if (prikaz == "exit")
-        {
-            break;
-        }
+        Console.WriteLine();
+        double odm_vysledok = Math.Sqrt(odm); 
+        Console.WriteLine($"Odmocnina z čísla {odm} je {odm_vysledok}.");
+        Console.WriteLine();
     }
     else
     {
-        Console.WriteLine("Zadaj správny príkaz.");
+        Console.WriteLine();
+        Console.WriteLine("Chyba, záporné čísla sa odmocňovať nedá.");
         Console.WriteLine();
     }
 }
-int Sum(int sum1, int sum2)
+void Find()
 {
-    int sum_vysledok = sum1 + sum2;
-    Console.WriteLine($"{sum1} + {sum2} = {sum_vysledok}.");
-    return sum_vysledok;
+    Console.WriteLine();
+    Console.WriteLine("Rozumiem, robíme operáciu find.");
+    Console.WriteLine();
+    Console.Write("Zadaj text: ");
+    string text = Console.ReadLine();
+    Console.WriteLine();
+    Console.Write("Zadaj hľadaný podreťazec: ");
+    string podretazec = Console.ReadLine();
+    Console.WriteLine();
+   if ((text.ToLower()).Contains(podretazec.ToLower()))
+   {
+       Console.WriteLine("Podreťazec sa v texte nachádza.");
+   }
+   else
+   {
+       Console.WriteLine("Podreťazec sa v texte nenachádza.");
+   }
+   Console.WriteLine();
 }
-double Odm(int odm)
+void Help()
 {
-    double odm_vysledok = Math.Sqrt(odm);
-    Console.WriteLine($"Odmocnina z čísla {odm} je {odm_vysledok}.");
-    return odm_vysledok;
+    Console.WriteLine();
+    Console.WriteLine("Operácie a ich využitie:");
+    Console.WriteLine("sum - sčíta dve čísla");
+    Console.WriteLine("odm - odmocní číslo");
+    Console.WriteLine("find - nájde podreťazec vo vete");
+    Console.WriteLine("help - vypíše všetky podporované príkazy");
+    Console.WriteLine();
 }
-void Find(string text, string podretazec)
+
+void Rect()
 {
-    if ((text.ToLower()).Contains(podretazec.ToLower()))
+    Console.WriteLine();
+    Console.WriteLine("Rozumiem, robíme operáciu rect.");
+    Console.WriteLine();
+    Console.Write("Zadaj dĺžku strany a: ");
+    int rect_a = int.Parse(Console.ReadLine());
+    Console.WriteLine();
+    Console.Write("Zadaj dĺžku strany b: ");
+    int rect_b = int.Parse(Console.ReadLine());
+    Console.WriteLine();
+    while (true)
     {
-        Console.WriteLine("Podreťazec sa v texte nachádza.");
-    }
-    else
-    {
-        Console.WriteLine("Podreťazec sa v texte nenachádza.");
+        Console.Write($"Rozumiem, máme obdĺžnik v rozmere {rect_a}x{rect_b}, zadaj príkaz (area, perimeter, diagonal): ");
+        string prikaz_rect = Console.ReadLine();
+        if (rect_a > 0 && rect_b > 0)
+        {
+            Console.WriteLine();
+            if (prikaz_rect == "area")
+            {
+                Console.WriteLine($"Area = {rect_a * rect_b}.");
+            }
+            else if (prikaz_rect == "perimeter")
+            {
+                Console.WriteLine($"Perimeter = {2 * rect_a + 2 * rect_b}.");
+            }
+            else if (prikaz_rect == "diagonal")
+            {
+                Console.WriteLine($"Diagonal = {Math.Sqrt(rect_a * rect_a + rect_b * rect_b)}.");
+            }
+            else if (prikaz_rect == "exit")
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Chyba, zadaj správny príkaz.");
+            }
+            Console.WriteLine();
+        }
+        else
+        {
+            Console.WriteLine("Zadaj správne údaje.");
+        }
     }
 }
+   
