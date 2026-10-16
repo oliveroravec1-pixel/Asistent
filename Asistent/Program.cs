@@ -68,7 +68,7 @@ void Odm()
     }
 }
 void Find()
-{
+{ 
     Console.WriteLine();
     Console.WriteLine("Rozumiem, robíme operáciu find.");
     Console.WriteLine();
