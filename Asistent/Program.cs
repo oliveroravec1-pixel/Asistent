@@ -236,6 +236,7 @@ void array()
        else
        {
            Console.WriteLine("Chyba, zadaj správny príkaz");
+           Console.WriteLine();
        }
    }
 }
