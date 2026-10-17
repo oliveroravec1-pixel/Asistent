@@ -134,7 +134,7 @@ void Rect()
   Console.WriteLine("Rozumiem, robíme operáciu rect.");
   Console.WriteLine();
   Console.Write("Zadaj dĺžku strany a: ");
-  if (!int.TryParse(Console.ReadLine(), out int rect_a))
+  if (!int.TryParse(Console.ReadLine(), out int rect_a) || rect_a <= 0)
   {
       Console.WriteLine();
       Console.WriteLine("Chyba, neplatné číslo.");
@@ -143,7 +143,7 @@ void Rect()
   }
   Console.WriteLine();
   Console.Write("Zadaj dĺžku strany b: ");
-  if (!int.TryParse(Console.ReadLine(), out int rect_b))
+  if (!int.TryParse(Console.ReadLine(), out int rect_b) || rect_b <=  0)
   {
       Console.WriteLine();
       Console.WriteLine("Chyba, neplatné číslo.");
@@ -155,35 +155,29 @@ void Rect()
   {
       Console.Write($"Rozumiem, máme obdĺžnik v rozmere {rect_a}x{rect_b}, zadaj príkaz (area, perimeter, diagonal): ");
       string prikaz_rect = Console.ReadLine();
-      if (rect_a > 0 && rect_b > 0)
+      Console.WriteLine();
+      if (prikaz_rect == "area")
       {
-          Console.WriteLine();
-          if (prikaz_rect == "area")
-          {
-              Console.WriteLine($"Area = {rect_a * rect_b}.");
-          }
-          else if (prikaz_rect == "perimeter")
-          {
-              Console.WriteLine($"Perimeter = {2 * rect_a + 2 * rect_b}.");
-          }
-          else if (prikaz_rect == "diagonal")
-          {
-              Console.WriteLine($"Diagonal = {Math.Sqrt(rect_a * rect_a + rect_b * rect_b)}.");
-          }
-          else if (prikaz_rect == "exit")
-          {
-              break;
-          }
-          else
-          {
-              Console.WriteLine("Chyba, zadaj správny príkaz.");
-          }
-          Console.WriteLine();
+          Console.WriteLine($"Area = {rect_a * rect_b}.");
+      }
+      else if (prikaz_rect == "perimeter")
+      {
+          Console.WriteLine($"Perimeter = {2 * rect_a + 2 * rect_b}.");
+      }
+      else if (prikaz_rect == "diagonal")
+      {
+          Console.WriteLine($"Diagonal = {Math.Sqrt(rect_a * rect_a + rect_b * rect_b)}.");
+      }
+      else if (prikaz_rect == "exit")
+      {
+          break;
+          break;
       }
       else
       {
-          Console.WriteLine("Zadaj správne údaje.");
+          Console.WriteLine("Chyba, zadaj správny príkaz.");
       }
+      Console.WriteLine();
   }
 }
 void Array()
